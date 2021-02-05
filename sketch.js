@@ -42,7 +42,7 @@ function setup(){
 
     bird = new Bird(200,50);
 
-    //log6 = new Log(230,180,80, PI/2);
+    
     slingshot = new SlingShot(bird.body,{x:200, y:50});
 }
 
@@ -57,13 +57,13 @@ function draw(){
     box2.display();
     ground.display();
     pig1.display();
-    //pig1.score();
+    
     log1.display();
 
     box3.display();
     box4.display();
     pig3.display();
-   // pig3.score();
+  
     log3.display();
 
     box5.display();
@@ -72,7 +72,7 @@ function draw(){
 
     bird.display();
     platform.display();
-    //log6.display();
+   
     slingshot.display();    
 }
 
@@ -86,19 +86,20 @@ function mouseReleased(){
 }
 function keyPressed(){
     if(keyCode===32)
+    bird.trajectory=[];
+    Matter.Body.setPosition(bird.body,{x:200,y:50});
     slingshot.attach(bird.body);
 }
 
 async function getTime(){
-    // var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
-    // var responseJSON = await response.json();
-    // console.log(responseJSON)
-    // var datetime = responseJSON.datetime;
-    // var hour = datetime.slice(11,13);
-    // console.log(datetime);
-    // console.log(hour);
-    var datetime = new Date();
-    var hour = datetime.getHours();
+    var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+    var responseJSON = await response.json();
+    console.log(responseJSON)
+    var datetime = responseJSON.datetime;
+    var hour = datetime.slice(11,13);
+    console.log(datetime);
+    console.log(hour);
+  
     if(hour>=06 && hour<=19){
         bg = "sprites/bg1.png";
     }
