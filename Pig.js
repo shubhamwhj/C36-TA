@@ -2,7 +2,7 @@ class Pig extends BaseClass {
   constructor(x, y){
     super(x,y,50,50);
     this.image = loadImage("sprites/enemy.png");
-    this.remove=false;
+   
   }
 display()
 {
@@ -10,13 +10,8 @@ display()
    {
       super.display();
    }else
-    {
-      if(this.remove==false)
-      {
-      World.remove(world,this.body)  
-        score=score+50;
-        this.remove=true;
-      }  
+    { 
+      World.remove(world,this.body)    
   }}
 };
 
